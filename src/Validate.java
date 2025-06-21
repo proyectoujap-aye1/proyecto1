@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.NoSuchFileException;
 import java.util.Scanner;
 
 public class Validate {
@@ -46,5 +49,39 @@ public class Validate {
             }
         }
     }
+    public static String scanValidString(Scanner scanner, String msg) {
+        while (true) {
+            System.out.print(msg);
+            String input = scanner.nextLine().trim();
 
+            if (input.isEmpty()) {
+                System.out.println("Error: El nombre no puede estar vacio.");
+                continue;
+            }
+
+            if (hasSpecChars(input)) {
+                System.out.println("Error: El nombre solo puede contener letras y espacios.");
+                continue;
+            }
+
+            return input;
+        }
+    }
+
+    public static String checkDirectory(String route) throws IOException {
+        String txt = "";
+
+        if (route.trim().isEmpty()) {
+            txt = "Manage-Error: Ruta esta vacia.";
+            throw new IllegalArgumentException(txt);
+        }
+
+        File directory = new File(route);
+        if (!directory.exists()) {
+            txt = "Manage-Error: El directorio a guardar no existe.";
+            throw new NoSuchFileException(txt);
+        }
+
+        return route;
+    }
 }
