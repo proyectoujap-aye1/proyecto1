@@ -103,6 +103,7 @@ public class Validate {
     public static Boolean isValidArr(int[] data) {
         return data != null && data.length > 0;
     }
-
-
+    public static Boolean isValidArr(double[] data) {
+        return data != null && data.length > 0;
+    }
 }
