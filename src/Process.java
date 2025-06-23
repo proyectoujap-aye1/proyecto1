@@ -1,3 +1,8 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Process {
@@ -19,6 +24,61 @@ public class Process {
                 cantItems[tableNumber - 1][i][j] = Validate.scanValidInteger(scanner,  "- Cantidad item " + (j + 1) + ": ", 0);
                 priceItems[tableNumber - 1][i][j] = Validate.scanValidDouble(scanner,  "- Precio unitario item " + (j + 1) + ": ", 0);
             }
+        }
+    }
+        public static String generateFileName(String name) {
+        LocalDateTime actualDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
+        int rand = (int) (Math.random() * 1000) + 1;
+
+        return name + "" + actualDateTime.format(formatter) + "" + "Serial" + rand;
+    }
+
+    public static void generateInvoice(String fileName, int tableNumber, int personsNumber, String[][] namePersons, int[][] itemPersons, String[][][] nameItems, int[][][] cantItems, double[][][] priceItems) throws IOException {
+        StringBuilder invoice = new StringBuilder();
+        double totalGeneral = 0;
+
+        invoice.append("Factura\n");
+        invoice.append("Mesa: ").append(tableNumber).append("\n\n");
+
+        for (int personIndex = 0; personIndex < personsNumber; personIndex++) {
+            if (namePersons[tableNumber - 1][personIndex] != null) {
+                String personName = namePersons[tableNumber - 1][personIndex];
+                double totalPersona = 0;
+
+                invoice.append("Cliente: ").append(personName).append("\n");
+                invoice.append("------------------------------------------------\n");
+
+                for (int itemIndex = 0; itemIndex < itemPersons[tableNumber - 1][personIndex]; itemIndex++) {
+                    if (nameItems[tableNumber - 1][personIndex][itemIndex] != null) {
+                        String itemName = nameItems[tableNumber - 1][personIndex][itemIndex];
+                        int cantidad = cantItems[tableNumber - 1][personIndex][itemIndex];
+                        double precio = priceItems[tableNumber - 1][personIndex][itemIndex];
+                        double subtotal = cantidad * precio;
+
+                        invoice.append(itemName)
+                               .append(" - Cantidad: ").append(cantidad)
+                               .append(" - Precio: $").append(precio)
+                               .append(" - Subtotal: $").append(subtotal).append("\n");
+                        totalPersona += subtotal;
+                    }
+                }
+
+                invoice.append("Total por ").append(personName).append(": $").append(totalPersona).append("\n\n");
+                totalGeneral += totalPersona;
+            }
+        }
+
+        invoice.append("------------------------------------------------\n");
+        invoice.append("Total General de la Mesa: $").append(totalGeneral).append("\n");
+
+        // Escribiendo en el archivo
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            writer.write(invoice.toString());
+            System.out.println("Factura generada con éxito.");
+        } catch (IOException e) {
+            // System.err.println("Error al escribir el archivo: " + e.getMessage());
+            throw e;
         }
     }
 
