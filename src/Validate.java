@@ -99,4 +99,10 @@ public class Validate {
 
         return route;
     }
+
+    public static Boolean isValidArr(int[] data) {
+        return data != null && data.length > 0;
+    }
+
+
 }
