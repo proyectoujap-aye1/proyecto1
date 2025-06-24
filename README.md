@@ -1,11 +1,13 @@
-# Proyecto Java Simple
+# Sistema de Comandas y Facturación para Restaurante (Java)
 
-Este proyecto contiene un programa Java básico que imprime "Hola Mundo".
+Aplicación de consola en Java para gestión de comandas y facturación en un restaurante. Permite registrar pedidos por mesa y comensal, generando facturas detalladas.
 
-## Cómo compilar
+## Características principales
 
-javac src/Main.java
-
-## Cómo ejecutar
-
-java -cp src Main
+- Registro de mesas (ocupadas/disponibles)
+- Gestión de comensales por mesa
+- Sistema de pedidos por items
+- Generación de facturas individuales por comensal
+- Resumen general por mesa
+- Persistencia en archivos de texto
+- Flujo interactivo con validaciones
