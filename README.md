@@ -1,6 +1,9 @@
 # Sistema de Comandas y Facturación para Restaurante (Java)
 
 Aplicación de consola en Java para gestión de comandas y facturación en un restaurante. Permite registrar pedidos por mesa y comensal, generando facturas detalladas.
+# Sistema de Comandas y Facturación para Restaurante (Java)
+
+Aplicación de consola en Java para gestión de comandas y facturación en un restaurante. Permite registrar pedidos por mesa y comensal, generando facturas detalladas.
 
 ## Características principales
 
