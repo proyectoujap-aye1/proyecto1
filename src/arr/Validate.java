@@ -57,12 +57,12 @@ public class Validate {
             String input = scanner.nextLine().trim();
 
             if (input.isEmpty()) {
-                System.out.println("Error: El nombre no puede estar vacio.");
+                System.out.println("Error: El valor no puede estar vacio.");
                 continue;
             }
 
             if (hasSpecChars(input)) {
-                System.out.println("Error: El nombre solo puede contener letras y espacios.");
+                System.out.println("Error: El valor solo puede contener letras y espacios.");
                 continue;
             }
 
@@ -91,19 +91,19 @@ public class Validate {
         return route;
     }
 
-    public static Boolean isValidArr(int[] data) {
+    public static boolean isValidArr(int[] data) {
         return data != null && data.length > 0;
     }
 
-    public static Boolean isValidArr(double[] data) {
+    public static boolean isValidArr(double[] data) {
         return data != null && data.length > 0;
     }
 
-    public static Boolean isValidArr(String[] data) {
+    public static boolean isValidArr(String[] data) {
         return data != null && data.length > 0;
     }
 
-    private static Boolean hasSpecChars(String value) {
+    private static boolean hasSpecChars(String value) {
         String invalids = "0123456789.,!#$%/()=?¡¨*[]_+-{}";
 
         for (int i = 0; i < value.length(); i++) {
