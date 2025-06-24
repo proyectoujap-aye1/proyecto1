@@ -50,20 +50,6 @@ public class Validate {
         }
     }
 
-
-    private static Boolean hasSpecChars(String value) {
-        String invalids = "0123456789.,!#$%/()=?¡¨*[]_+-{}";
-
-        for (int i = 0; i < value.length(); i++) {
-            for (int j = 0; j < invalids.length(); j++) {
-                if (value.charAt(i) == invalids.charAt(j)){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
     public static String scanValidString(Scanner scanner, String msg) {
         while (true) {
             System.out.print(msg);
@@ -103,7 +89,22 @@ public class Validate {
     public static Boolean isValidArr(int[] data) {
         return data != null && data.length > 0;
     }
+    
     public static Boolean isValidArr(double[] data) {
         return data != null && data.length > 0;
+    }
+
+    private static Boolean hasSpecChars(String value) {
+        String invalids = "0123456789.,!#$%/()=?¡¨*[]_+-{}";
+
+        for (int i = 0; i < value.length(); i++) {
+            for (int j = 0; j < invalids.length(); j++) {
+                if (value.charAt(i) == invalids.charAt(j)){
+                    return true;
+                }
+            }
+        }
+        
+        return false;
     }
 }
