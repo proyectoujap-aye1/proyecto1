@@ -4,7 +4,9 @@ import java.nio.file.NoSuchFileException;
 import java.util.Scanner;
 
 public class Validate {
-
+public static Boolean isValidArr(String[] data) {
+        return data != null && data.length > 0;
+    }
     public static int scanValidInteger(Scanner scanner, String msg, int limit) {
         while (true) {
             try {
