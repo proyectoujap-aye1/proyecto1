@@ -20,8 +20,7 @@ public class Validate {
                     } else {
                         return value;
                     }
-                }
-                else { // En caso de que sea 0, es porque el valor ingresado no tiene un limite
+                } else { // En caso de que sea 0, es porque el valor ingresado no tiene un limite
                     return value;
                 }
             } catch (NumberFormatException e) {
@@ -74,15 +73,19 @@ public class Validate {
     public static String checkDirectory(String route) throws IOException {
         String txt = "";
 
-        if (route.trim().isEmpty()) {
+        if (route == null || route.trim().isEmpty()) {
             txt = "Manage-Error: Ruta esta vacia.";
-            throw new IllegalArgumentException(txt);
+            IllegalArgumentException e = new IllegalArgumentException(txt);
+            Process.logError(txt, e.getMessage(), e.getLocalizedMessage());
+            throw e;
         }
 
         File directory = new File(route);
         if (!directory.exists()) {
             txt = "Manage-Error: El directorio a guardar no existe.";
-            throw new NoSuchFileException(txt);
+            NoSuchFileException e = new NoSuchFileException(txt);
+            Process.logError(txt, e.getMessage(), e.getLocalizedMessage());
+            throw e;
         }
 
         return route;

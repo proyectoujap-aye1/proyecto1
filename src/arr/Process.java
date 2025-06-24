@@ -10,9 +10,9 @@ import java.util.Scanner;
 
 public class Process {
 
-    // private static final String ERROR_FILE_NAME = "ErrorLogs.log";
+    private static final String ERROR_FILE_NAME = "ErrorLogs.log";
     private static final String INVOICE_FILE_NAME = "Factura";
-    // private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public static void initMatrix (int[] m) {
         if (m != null) {
@@ -80,21 +80,27 @@ public class Process {
     }
 
     public static void requestNames (Scanner scanner, int tableNumber, int personsNumber, String[][] namePersons) {
-        for (int i = 0; i < personsNumber; i++)
-            namePersons[tableNumber - 1][i] = Validate.scanValidString(scanner, "Nombre de persona " + (i + 1) + ": ");
+        if (Validate.isValidArr(namePersons[0])) {
+            for (int i = 0; i < personsNumber; i++)
+                namePersons[tableNumber - 1][i] = Validate.scanValidString(scanner, "Nombre de persona " + (i + 1) + ": ");
+        }
     }
 
     public static void requestItems (Scanner scanner, int tableNumber, int personsNumber, String[][] namePersons, int[][] itemPersons, String[][][] nameItems, int[][][] cantItems, double[][][] priceItems, int MAX_ITEMS_BY_PERSON) {
-        for (int i = 0; i < personsNumber; i++) {
-            String name = namePersons[tableNumber - 1][i];
-            int items = Validate.scanValidInteger(scanner, "\nCantidad de items de " + name + " (1-" + MAX_ITEMS_BY_PERSON + "): ", MAX_ITEMS_BY_PERSON);
-            itemPersons[tableNumber - 1][i] = items;
 
-            for (int j = 0; j < itemPersons[tableNumber - 1][i]; j++) {
-                System.out.println("\nItem " + (j + 1) + " - " + name.toUpperCase());
-                nameItems[tableNumber - 1][i][j] = Validate.scanValidString(scanner, "- Nombre item " + (j + 1) + ": ");
-                cantItems[tableNumber - 1][i][j] = Validate.scanValidInteger(scanner,  "- Cantidad item " + (j + 1) + ": ", 0);
-                priceItems[tableNumber - 1][i][j] = Validate.scanValidDouble(scanner,  "- Precio unitario item " + (j + 1) + ": ", 0);
+        if (Validate.isValidArr(namePersons[0]) && Validate.isValidArr(itemPersons[0]) && Validate.isValidArr(nameItems[0][0]) &&
+        Validate.isValidArr(cantItems[0][0]) && Validate.isValidArr(priceItems[0][0])) {
+            for (int i = 0; i < personsNumber; i++) {
+                String name = namePersons[tableNumber - 1][i];
+                int items = Validate.scanValidInteger(scanner, "\nCantidad de items de " + name + " (1-" + MAX_ITEMS_BY_PERSON + "): ", MAX_ITEMS_BY_PERSON);
+                itemPersons[tableNumber - 1][i] = items;
+
+                for (int j = 0; j < itemPersons[tableNumber - 1][i]; j++) {
+                    System.out.println("\nItem " + (j + 1) + " - " + name.toUpperCase());
+                    nameItems[tableNumber - 1][i][j] = Validate.scanValidString(scanner, "- Nombre item " + (j + 1) + ": ");
+                    cantItems[tableNumber - 1][i][j] = Validate.scanValidInteger(scanner,  "- Cantidad item " + (j + 1) + ": ", 0);
+                    priceItems[tableNumber - 1][i][j] = Validate.scanValidDouble(scanner,  "- Precio unitario item " + (j + 1) + ": ", 0);
+                }
             }
         }
     }
@@ -121,9 +127,23 @@ public class Process {
                 writer.write(invoiceText);
                 System.out.println("Factura generada con éxito.");
             } catch (IOException e) {
-                // System.err.println("Error al escribir el archivo: " + e.getMessage());
+                logError("Error al escribir el archivo", e.getMessage(), e.getLocalizedMessage());
                 throw e;
             }
+        }
+    }
+
+    public static void logError(String error, String message, String localizedMessage) {
+        try {
+            String route = Paths.get("").toRealPath().toString() + "\\src\\arr\\" + ERROR_FILE_NAME;
+            String timestamp = LocalDateTime.now().format(DATE_FORMAT);
+            String content = String.format("[%s] [%s] [%s] [%s]\n", timestamp, error, message, localizedMessage);
+
+            BufferedWriter bw = new BufferedWriter(new FileWriter(route, true));
+            bw.write(content);
+            bw.close();
+        } catch (Exception ex) {
+            System.out.println("Ha ocurrido un error escribiendo en archivo .log");
         }
     }
 
