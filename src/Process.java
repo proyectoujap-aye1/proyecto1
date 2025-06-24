@@ -26,7 +26,8 @@ public class Process {
             }
         }
     }
-        public static String generateFileName(String name) {
+    
+    public static String generateFileName(String name) {
         LocalDateTime actualDateTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss");
         int rand = (int) (Math.random() * 1000) + 1;
@@ -81,5 +82,4 @@ public class Process {
             throw e;
         }
     }
-
 }
