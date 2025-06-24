@@ -1,3 +1,5 @@
+package arr;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.NoSuchFileException;
@@ -27,7 +29,7 @@ public class Validate {
             }
         }
     }
-    
+
     public static double scanValidDouble(Scanner scanner, String msg, int limit) {
         while (true) {
             try {
@@ -56,12 +58,12 @@ public class Validate {
             String input = scanner.nextLine().trim();
 
             if (input.isEmpty()) {
-                System.out.println("Error: El nombre no puede estar vacio.");
+                System.out.println("Error: El valor no puede estar vacio.");
                 continue;
             }
 
             if (hasSpecChars(input)) {
-                System.out.println("Error: El nombre solo puede contener letras y espacios.");
+                System.out.println("Error: El valor solo puede contener letras y espacios.");
                 continue;
             }
 
@@ -89,7 +91,7 @@ public class Validate {
     public static Boolean isValidArr(int[] data) {
         return data != null && data.length > 0;
     }
-    
+
     public static Boolean isValidArr(double[] data) {
         return data != null && data.length > 0;
     }
@@ -108,7 +110,7 @@ public class Validate {
                 }
             }
         }
-        
+
         return false;
     }
 }
