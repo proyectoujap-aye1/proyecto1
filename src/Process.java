@@ -6,7 +6,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Process {
- public static void initMatrix (boolean[] m) {
+ 
+    public static void initMatrix (boolean[] m) {
         if (m != null) {
             for (int i = 0; i < m.length; i++)
                 m[i] = false;
@@ -70,6 +71,7 @@ public class Process {
             }
         }
     }
+ 
     public static void requestNames (Scanner scanner, int tableNumber, int personsNumber, String[][] namePersons) {
         for (int i = 0; i < personsNumber; i++)
             namePersons[tableNumber - 1][i] = Validate.scanValidString(scanner, "Nombre de persona " + (i + 1) + ": ");
