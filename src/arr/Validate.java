@@ -8,6 +8,20 @@ import java.util.Scanner;
 public class Validate {
 
     public static int scanValidInteger(Scanner scanner, String msg, int limit) {
+        if (scanner == null) {
+            String txt = "El objeto escaner no puede ser nulo";
+            IllegalArgumentException e = new IllegalArgumentException(txt);
+            Process.logError(txt, e.getMessage(), e.getLocalizedMessage());
+            throw e;
+        }
+
+        if (msg == null || msg.trim().isEmpty()) {
+            String txt = "El mensaje no puede ser vacio ni nulo";
+            IllegalArgumentException e = new IllegalArgumentException(txt);
+            Process.logError(txt, e.getMessage(), e.getLocalizedMessage());
+            throw e;
+        }
+        
         while (true) {
             try {
                 System.out.print(msg);
@@ -30,6 +44,20 @@ public class Validate {
     }
 
     public static double scanValidDouble(Scanner scanner, String msg, int limit) {
+        if (scanner == null) {
+            String txt = "El objeto escaner no puede ser nulo";
+            IllegalArgumentException e = new IllegalArgumentException(txt);
+            Process.logError(txt, e.getMessage(), e.getLocalizedMessage());
+            throw e;
+        }
+
+        if (msg == null || msg.trim().isEmpty()) {
+            String txt = "El mensaje no puede ser vacio ni nulo";
+            IllegalArgumentException e = new IllegalArgumentException(txt);
+            Process.logError(txt, e.getMessage(), e.getLocalizedMessage());
+            throw e;
+        }
+        
         while (true) {
             try {
                 System.out.print(msg);
@@ -52,6 +80,20 @@ public class Validate {
     }
 
     public static String scanValidString(Scanner scanner, String msg) {
+        if (scanner == null) {
+            String txt = "El objeto escaner no puede ser nulo";
+            IllegalArgumentException e = new IllegalArgumentException(txt);
+            Process.logError(txt, e.getMessage(), e.getLocalizedMessage());
+            throw e;
+        }
+
+        if (msg == null || msg.trim().isEmpty()) {
+            String txt = "El mensaje no puede ser vacio ni nulo";
+            IllegalArgumentException e = new IllegalArgumentException(txt);
+            Process.logError(txt, e.getMessage(), e.getLocalizedMessage());
+            throw e;
+        }
+        
         while (true) {
             System.out.print(msg);
             String input = scanner.nextLine().trim();
@@ -106,10 +148,12 @@ public class Validate {
     private static Boolean hasSpecChars(String value) {
         String invalids = "0123456789.,!#$%/()=?¡¨*[]_+-{}";
 
-        for (int i = 0; i < value.length(); i++) {
-            for (int j = 0; j < invalids.length(); j++) {
-                if (value.charAt(i) == invalids.charAt(j)){
-                    return true;
+        if (value != null && !value.trim().isEmpty()) {
+            for (int i = 0; i < value.length(); i++) {
+                for (int j = 0; j < invalids.length(); j++) {
+                    if (value.charAt(i) == invalids.charAt(j)){
+                        return true;
+                    }
                 }
             }
         }
