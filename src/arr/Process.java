@@ -80,7 +80,7 @@ public class Process {
     }
 
     public static void requestNames (Scanner scanner, int tableNumber, int personsNumber, String[][] namePersons) {
-        if (Validate.isValidArr(namePersons[0])) {
+        if (scanner != null && Validate.isValidArr(namePersons[0])) {
             for (int i = 0; i < personsNumber; i++)
                 namePersons[tableNumber - 1][i] = Validate.scanValidString(scanner, "Nombre de persona " + (i + 1) + ": ");
         }
@@ -88,7 +88,7 @@ public class Process {
 
     public static void requestItems (Scanner scanner, int tableNumber, int personsNumber, String[][] namePersons, int[][] itemPersons, String[][][] nameItems, int[][][] cantItems, double[][][] priceItems, int MAX_ITEMS_BY_PERSON) {
 
-        if (Validate.isValidArr(namePersons[0]) && Validate.isValidArr(itemPersons[0]) && Validate.isValidArr(nameItems[0][0]) &&
+        if (scanner != null && Validate.isValidArr(namePersons[0]) && Validate.isValidArr(itemPersons[0]) && Validate.isValidArr(nameItems[0][0]) &&
         Validate.isValidArr(cantItems[0][0]) && Validate.isValidArr(priceItems[0][0])) {
             for (int i = 0; i < personsNumber; i++) {
                 String name = namePersons[tableNumber - 1][i];
