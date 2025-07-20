@@ -1,0 +1,61 @@
+[2025-07-19 23:25:45] INFO: === INICIANDO SISTEMA ===
+[2025-07-19 23:25:45] INFO: INICIO: Inicializando matrices
+[2025-07-19 23:25:45] INFO: FIN: Inicializando matrices
+[2025-07-19 23:25:55] ERROR: Error: Debe ingresar un numero entero valido.
+[2025-07-19 23:25:57] WARN: Cantidad invalida. Debe ser entre 1 y 30
+[2025-07-19 23:26:00] WARN: Cantidad invalida. Debe ser entre 1 y 30
+[2025-07-19 23:26:02] WARN: Cantidad invalida. Debe ser entre 1 y 30
+[2025-07-19 23:26:04] ERROR: Error: Debe ingresar un numero entero valido.
+[2025-07-19 23:26:13] WARN: Error: El valor solo puede contener letras y espacios.
+[2025-07-19 23:26:15] WARN: Error: El valor solo puede contener letras y espacios.
+[2025-07-19 23:27:38] INFO: === INICIANDO SISTEMA ===
+[2025-07-19 23:27:38] INFO: INICIO: Inicializando matrices
+[2025-07-19 23:27:38] INFO: FIN: Inicializando matrices
+[2025-07-19 23:27:50] WARN: Cantidad invalida. Debe ser entre 1 y 30
+[2025-07-19 23:27:52] ERROR: Error: Debe ingresar un numero entero valido.
+[2025-07-19 23:27:54] ERROR: Error: Debe ingresar un numero entero valido.
+[2025-07-19 23:27:55] WARN: Cantidad invalida. Debe ser entre 1 y 30
+[2025-07-19 23:27:56] WARN: Cantidad invalida. Debe ser entre 1 y 30
+[2025-07-19 23:29:06] INFO: === INICIANDO SISTEMA ===
+[2025-07-19 23:29:06] INFO: INICIO: Inicializando matrices
+[2025-07-19 23:29:06] INFO: FIN: Inicializando matrices
+[2025-07-19 23:29:11] ERROR: Error: Debe ingresar un numero entero valido.
+[2025-07-19 23:29:13] WARN: Cantidad invalida. Debe ser entre 1 y 30
+[2025-07-19 23:30:20] INFO: === INICIANDO SISTEMA ===
+[2025-07-19 23:30:20] INFO: INICIO: Inicializando matrices
+[2025-07-19 23:30:20] INFO: FIN: Inicializando matrices
+[2025-07-19 23:30:27] WARN: Cantidad invalida. Debe ser entre 1 y 30
+[2025-07-19 23:30:29] ERROR: Error: Debe ingresar un numero entero valido.
+[2025-07-19 23:30:34] ERROR: Error: Debe ingresar un numero entero valido.
+[2025-07-19 23:30:40] WARN: Cantidad invalida. Debe ser entre 1 y 6
+[2025-07-19 23:32:42] WARN: Error: El valor solo puede contener letras y espacios.
+[2025-07-19 23:32:46] WARN: Error: El valor no puede estar vacio.
+[2025-07-19 23:32:51] WARN: Error: El valor solo puede contener letras y espacios.
+[2025-07-19 23:32:53] WARN: Error: El valor solo puede contener letras y espacios.[2025-07-19 23:35:02] INFO: === INICIANDO SISTEMA ===
+[2025-07-19 23:35:02] INFO: INICIO: Inicializando matrices
+[2025-07-19 23:35:02] INFO: FIN: Inicializando matrices
+[2025-07-19 23:35:06] ERROR: Error: Debe ingresar un numero entero valido.
+[2025-07-19 23:35:11] ERROR: Error: Debe ingresar un numero entero valido.
+[2025-07-19 23:35:14] WARN: Cantidad invalida. Debe ser entre 1 y 30
+[2025-07-19 23:35:21] ERROR: Error: Debe ingresar un numero entero valido.
+[2025-07-19 23:35:22] WARN: Cantidad invalida. Debe ser entre 1 y 6
+[2025-07-19 23:35:29] WARN: Error: El valor solo puede contener letras y espacios.
+[2025-07-19 23:35:29] WARN: Error: El valor no puede estar vacio.
+[2025-07-19 23:35:31] WARN: Error: El valor solo puede contener letras y espacios.
+[2025-07-19 23:36:21] WARN: Error: El valor solo puede contener letras y espacios.
+[2025-07-19 23:37:01] WARN: Error: El valor solo puede contener letras y espacios.
+[2025-07-19 23:37:08] ERROR: Error: Debe ingresar un numero decimal valido.
+[2025-07-19 23:38:02] ERROR: Error al escribir en archivo Factura
+[2025-07-19 23:48:03] INFO: === INICIANDO SISTEMA ===
+[2025-07-19 23:48:03] INFO: INICIO: Inicializando matrices
+[2025-07-19 23:48:03] INFO: FIN: Inicializando matrices
+[2025-07-19 23:48:27] ERROR: Error al escribir en archivo Factura (El nombre de archivo, el nombre de directorio o la sintaxis de la etiqueta del volumen no son correctos)
+[2025-07-19 23:50:03] INFO: === INICIANDO SISTEMA ===
+[2025-07-19 23:50:03] INFO: INICIO: Inicializando matrices
+[2025-07-19 23:50:03] INFO: FIN: Inicializando matrices
+[2025-07-19 23:50:24] INFO: === INICIANDO SISTEMA ===
+[2025-07-19 23:50:24] INFO: INICIO: Inicializando matrices
+[2025-07-19 23:50:24] INFO: FIN: Inicializando matrices
+[2025-07-19 23:51:30] WARN: Error: El valor solo puede contener letras y espacios.
+[2025-07-19 23:52:28] ERROR: Error: Debe ingresar un numero entero valido.
+[2025-07-19 23:52:31] WARN: Cantidad invalida. Debe ser entre 1 y 3

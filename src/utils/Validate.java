@@ -1,4 +1,4 @@
-package arr;
+package utils;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,17 +14,21 @@ public class Validate {
                 String enteredValue = scanner.nextLine();
                 int value = Integer.parseInt(enteredValue);
 
-                if (limit > 0) { // Si se recibe un valor mayor a 0, es porque el valor ingresado debe tener un limite
+                if (limit > 0) {
                     if (value < 1 || value > limit) {
-                        System.out.println("Cantidad invalida. Debe ser entre 1 y " + limit);
+                        String error = "Cantidad invalida. Debe ser entre 1 y " + limit;
+                        LoggerUtil.logWarn(error);
+                        System.out.println(error + "\n");
                     } else {
                         return value;
                     }
-                } else { // En caso de que sea 0, es porque el valor ingresado no tiene un limite
+                } else { // No tiene limite
                     return value;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Error: Debe ingresar un numero entero valido.");
+                String error = "Error: Debe ingresar un numero entero valido.";
+                LoggerUtil.logError(error);
+                System.out.println(error + "\n");
             }
         }
     }
@@ -36,17 +40,21 @@ public class Validate {
                 String enteredValue = scanner.nextLine();
                 double value = Double.parseDouble(enteredValue);
 
-                if (limit > 0) { // Si se recibe un valor mayor a 0, es porque el valor ingresado debe tener un limite
+                if (limit > 0) {
                     if (value < 1 || value > limit) {
-                        System.out.println("Cantidad invalida. Debe ser entre 1 y " + limit);
+                        String error = "Cantidad invalida. Debe ser entre 1 y " + limit;
+                        LoggerUtil.logWarn(error);
+                        System.out.println(error + "\n");
                     } else {
                         return value;
                     }
-                } else { // En caso de que sea 0, es porque el valor ingresado no tiene un limite
+                } else { // No tiene limite
                     return value;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Error: Debe ingresar un numero valido.");
+                String error = "Error: Debe ingresar un numero decimal valido.";
+                LoggerUtil.logError(error);
+                System.out.println(error + "\n");
             }
         }
     }
@@ -57,12 +65,16 @@ public class Validate {
             String input = scanner.nextLine().trim();
 
             if (input.isEmpty()) {
-                System.out.println("Error: El valor no puede estar vacio.");
+                String error = "Error: El valor no puede estar vacio.";
+                LoggerUtil.logWarn(error);
+                System.out.println(error + "\n");
                 continue;
             }
 
             if (hasSpecChars(input)) {
-                System.out.println("Error: El valor solo puede contener letras y espacios.");
+                String error = "Error: El valor solo puede contener letras y espacios.";
+                LoggerUtil.logWarn(error);
+                System.out.println(error + "\n");
                 continue;
             }
 
@@ -76,7 +88,7 @@ public class Validate {
         if (route == null || route.trim().isEmpty()) {
             txt = "Manage-Error: Ruta esta vacia.";
             IllegalArgumentException e = new IllegalArgumentException(txt);
-            Process.logError(txt, e.getMessage(), e.getLocalizedMessage());
+            LoggerUtil.logError(e.getMessage() + " -> " + e.getLocalizedMessage());
             throw e;
         }
 
@@ -84,7 +96,7 @@ public class Validate {
         if (!directory.exists()) {
             txt = "Manage-Error: El directorio a guardar no existe.";
             NoSuchFileException e = new NoSuchFileException(txt);
-            Process.logError(txt, e.getMessage(), e.getLocalizedMessage());
+            LoggerUtil.logError(e.getMessage() + " -> " + e.getLocalizedMessage());
             throw e;
         }
 
@@ -100,6 +112,10 @@ public class Validate {
     }
 
     public static boolean isValidArr(String[] data) {
+        return data != null && data.length > 0;
+    }
+
+    public static boolean isValidArr(boolean[] data) {
         return data != null && data.length > 0;
     }
 
