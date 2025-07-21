@@ -47,7 +47,7 @@ public class RestaurantMain {
                     addOrder(scanner);
                     break;
                 case 2:
-                    // mostrarEstadoMesas();
+                    showTables();
                     break;
                 case 3:
                     // buscarInformacion();
@@ -82,5 +82,11 @@ public class RestaurantMain {
         }
 
         Restaurant.generateInvoice(table, persons, personNames, personItems, itemNames, itemQuants, itemPrices);
+    }
+
+    private static void showTables () {
+        for (int i = 0; i < tables.length; i++) {
+            Restaurant.showStatusTable(i, tables[i]);
+        }
     }
 }

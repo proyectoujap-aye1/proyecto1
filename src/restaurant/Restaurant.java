@@ -8,6 +8,7 @@ import utils.Validate;
 
 public class Restaurant {
 
+    // -------------------------------------------------------------------------------------------------------------- ADD ORDER
     public static int setTableNumber (Scanner scanner, boolean[] tables, int MAX) {
         if (Validate.isValidArr(tables)) {
             String msg = "Ingrese el numero de mesa (1-" + MAX + "): ";
@@ -80,5 +81,10 @@ public class Restaurant {
             FileManager.writeInFile(fileNameInvoice, invoiceText);
             System.out.println("Comanda generada con exito: " + fileNameInvoice);
         }
+    }
+
+    // -------------------------------------------------------------------------------------------------------------- SHOW TABLES
+    public static void showStatusTable(int index, boolean isBusy) {
+        System.out.printf("- Mesa %02d: %s\n", index + 1, isBusy ? "OCUPADA" : "LIBRE");
     }
 }

@@ -59,3 +59,23 @@
 [2025-07-19 23:51:30] WARN: Error: El valor solo puede contener letras y espacios.
 [2025-07-19 23:52:28] ERROR: Error: Debe ingresar un numero entero valido.
 [2025-07-19 23:52:31] WARN: Cantidad invalida. Debe ser entre 1 y 3
+[2025-07-20 23:50:45] INFO: === INICIANDO SISTEMA ===
+[2025-07-20 23:50:45] INFO: INICIO: Inicializando matrices
+[2025-07-20 23:50:45] INFO: FIN: Inicializando matrices
+[2025-07-20 23:51:09] INFO: INICIO: Desreferenciando matrices
+[2025-07-20 23:51:09] INFO: FIN: Desreferenciando matrices
+[2025-07-20 23:51:09] INFO: === FINALIZANDO SISTEMA ===
+[2025-07-21 00:00:42] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 00:00:42] INFO: INICIO: Inicializando matrices
+[2025-07-21 00:00:42] INFO: FIN: Inicializando matrices
+[2025-07-21 00:00:47] WARN: Cantidad invalida. Debe ser entre 1 y 30
+[2025-07-21 00:00:51] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 00:00:51] INFO: INICIO: Inicializando matrices
+[2025-07-21 00:00:51] INFO: FIN: Inicializando matrices
+[2025-07-21 00:01:40] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 00:01:40] INFO: INICIO: Inicializando matrices
+[2025-07-21 00:01:40] INFO: FIN: Inicializando matrices
+[2025-07-21 00:01:41] ERROR: Error fatal en el juego: %0d
+[2025-07-21 00:02:10] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 00:02:10] INFO: INICIO: Inicializando matrices
+[2025-07-21 00:02:10] INFO: FIN: Inicializando matrices
