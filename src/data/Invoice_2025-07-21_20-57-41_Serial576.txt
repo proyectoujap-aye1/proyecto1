@@ -1,0 +1,29 @@
+Factura
+Mesa: 26
+
+Cliente: alejandro
+-----------------------------------------------------------
+agua - Cantidad: 1 - Precio: $20.0 - Subtotal: $20.0
+Total de alejandro: $20.0
+
+Cliente: juan
+-----------------------------------------------------------
+tizana - Cantidad: 1 - Precio: $10.0 - Subtotal: $10.0
+tequeno - Cantidad: 3 - Precio: $50.0 - Subtotal: $150.0
+jugo - Cantidad: 2 - Precio: $25.0 - Subtotal: $50.0
+Total de juan: $210.0
+
+Cliente: eudrey
+-----------------------------------------------------------
+refresco - Cantidad: 2 - Precio: $35.0 - Subtotal: $70.0
+tostones - Cantidad: 2 - Precio: $20.0 - Subtotal: $40.0
+Total de eudrey: $110.0
+
+Cliente: juan manuel
+-----------------------------------------------------------
+agua - Cantidad: 1 - Precio: $15.0 - Subtotal: $15.0
+pepito - Cantidad: 2 - Precio: $30.0 - Subtotal: $60.0
+Total de juan manuel: $75.0
+
+-----------------------------------------------------------
+Total General de la Mesa: $415.0

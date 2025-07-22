@@ -1,8 +1,10 @@
 package restaurant;
 
+import java.io.File;
 import java.util.Scanner;
 
 import process.ProcessMain;
+import utils.LoggerUtil;
 
 public class RestaurantMain {
 
@@ -34,8 +36,9 @@ public class RestaurantMain {
             System.out.println("\n=== SISTEMA DE GESTIÓN DE RESTAURANTE ===");
             System.out.println("1. Agregar comanda");
             System.out.println("2. Ver estado de todas las mesas");
-            System.out.println("3. Buscar información");
-            System.out.println("4. Salir");
+            System.out.println("3. Buscar información por nombre");
+            System.out.println("4. Buscar información por mesa");
+            System.out.println("5. Salir");
             System.out.print("Seleccione una opción: ");
 
             int opt = scanner.nextInt();
@@ -50,9 +53,12 @@ public class RestaurantMain {
                     showTables();
                     break;
                 case 3:
-                    // buscarInformacion();
+                    searchInfo(scanner, "NAME");
                     break;
                 case 4:
+                    searchInfo(scanner, "TABLE");
+                    break;
+                case 5:
                     exit = true;
                     System.out.println("Saliendo del sistema...");
                     break;
@@ -87,6 +93,32 @@ public class RestaurantMain {
     private static void showTables () {
         for (int i = 0; i < tables.length; i++) {
             Restaurant.showStatusTable(i, tables[i]);
+        }
+    }
+
+    private static void searchInfo (Scanner scanner, String criteria) {
+        String error_msg = "";
+        File[] invoices = Restaurant.getTotalInvoices();
+
+        if (invoices != null && invoices.length > 0) {
+            switch (criteria) {
+                case "NAME":
+                    Restaurant.searchInfoByName(scanner, invoices);
+                    break;
+                case "TABLE":
+                    Restaurant.searchInfoByTable(scanner, invoices, MAX_TABLES);
+                    break;
+                default:
+                    error_msg = "Termino de busqueda invalido";
+                    break;
+            }
+        } else {
+            error_msg = "No hay facturas generadas";
+        }
+
+        if (!error_msg.equals("")) {
+            LoggerUtil.logWarn(error_msg);
+            System.out.println(error_msg.toUpperCase());
         }
     }
 }

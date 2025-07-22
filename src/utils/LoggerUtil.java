@@ -38,7 +38,7 @@ public class LoggerUtil {
             try {
                 Files.createDirectory(Paths.get(LOG_DIRECTORY));
             } catch (IOException e) {
-                System.out.println("Ha ocurrido un error al crear la carpeta de los logs.");
+                LoggerUtil.logError("Error al crear directorio de logs: " + e.getMessage());
             }
         }
     }

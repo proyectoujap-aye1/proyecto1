@@ -79,3 +79,205 @@
 [2025-07-21 00:02:10] INFO: === INICIANDO SISTEMA ===
 [2025-07-21 00:02:10] INFO: INICIO: Inicializando matrices
 [2025-07-21 00:02:10] INFO: FIN: Inicializando matrices
+[2025-07-21 00:33:27] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 00:33:27] INFO: INICIO: Inicializando matrices
+[2025-07-21 00:33:27] INFO: FIN: Inicializando matrices
+[2025-07-21 00:33:57] WARN: No hay facturas generadas
+[2025-07-21 00:34:01] WARN: No hay facturas generadas
+[2025-07-21 00:40:22] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 00:40:22] INFO: INICIO: Inicializando matrices
+[2025-07-21 00:40:22] INFO: FIN: Inicializando matrices
+[2025-07-21 00:40:24] WARN: No hay facturas generadas
+[2025-07-21 00:45:44] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 00:45:44] INFO: INICIO: Inicializando matrices
+[2025-07-21 00:45:44] INFO: FIN: Inicializando matrices
+[2025-07-21 00:45:48] WARN: Error: El valor solo puede contener letras y espacios.
+[2025-07-21 00:45:55] INFO: INICIO: Desreferenciando matrices
+[2025-07-21 00:45:55] INFO: FIN: Desreferenciando matrices
+[2025-07-21 00:45:55] INFO: === FINALIZANDO SISTEMA ===
+[2025-07-21 00:51:49] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 00:51:49] INFO: INICIO: Inicializando matrices
+[2025-07-21 00:51:49] INFO: FIN: Inicializando matrices
+[2025-07-21 00:51:54] INFO: Buscando informacion: Nombre alejandro
+[2025-07-21 00:52:42] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 00:52:43] INFO: INICIO: Inicializando matrices
+[2025-07-21 00:52:43] INFO: FIN: Inicializando matrices
+[2025-07-21 00:52:56] INFO: Buscando informacion: Nombre ale
+[2025-07-21 00:54:00] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 00:54:00] INFO: INICIO: Inicializando matrices
+[2025-07-21 00:54:00] INFO: FIN: Inicializando matrices
+[2025-07-21 00:54:04] INFO: Buscando informacion: Nombre alejandro
+[2025-07-21 00:55:06] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 00:55:06] INFO: INICIO: Inicializando matrices
+[2025-07-21 00:55:06] INFO: FIN: Inicializando matrices
+[2025-07-21 00:55:09] INFO: Buscando informacion: Nombre ale
+[2025-07-21 00:55:11] WARN: Cantidad invalida. Debe ser entre 1 y 2
+[2025-07-21 00:55:16] INFO: INICIO: Desreferenciando matrices
+[2025-07-21 00:55:16] INFO: FIN: Desreferenciando matrices
+[2025-07-21 00:55:16] INFO: === FINALIZANDO SISTEMA ===
+[2025-07-21 00:55:38] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 00:55:38] INFO: INICIO: Inicializando matrices
+[2025-07-21 00:55:38] INFO: FIN: Inicializando matrices
+[2025-07-21 00:55:41] INFO: Buscando informacion: Nombre sdfsadf
+[2025-07-21 00:55:46] WARN: Cantidad invalida. Debe ser entre 1 y 1
+[2025-07-21 00:55:47] WARN: Cantidad invalida. Debe ser entre 1 y 1
+[2025-07-21 00:55:48] WARN: Cantidad invalida. Debe ser entre 1 y 1
+[2025-07-21 00:55:49] WARN: Cantidad invalida. Debe ser entre 1 y 1
+[2025-07-21 00:55:53] INFO: INICIO: Desreferenciando matrices
+[2025-07-21 00:55:53] INFO: FIN: Desreferenciando matrices
+[2025-07-21 00:55:53] INFO: === FINALIZANDO SISTEMA ===
+[2025-07-21 20:56:01] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 20:56:01] INFO: INICIO: Inicializando matrices
+[2025-07-21 20:56:01] INFO: FIN: Inicializando matrices
+[2025-07-21 20:57:45] INFO: INICIO: Desreferenciando matrices
+[2025-07-21 20:57:45] INFO: FIN: Desreferenciando matrices
+[2025-07-21 20:57:45] INFO: === FINALIZANDO SISTEMA ===
+[2025-07-21 21:17:35] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 21:17:35] INFO: INICIO: Inicializando matrices
+[2025-07-21 21:17:35] INFO: FIN: Inicializando matrices
+[2025-07-21 21:17:45] INFO: Buscando informacion: Nombre alejandro
+[2025-07-21 21:17:49] WARN: Cantidad invalida. Debe ser entre 1 y 2
+[2025-07-21 21:23:19] INFO: INICIO: Desreferenciando matrices
+[2025-07-21 21:23:19] INFO: FIN: Desreferenciando matrices
+[2025-07-21 21:23:19] INFO: === FINALIZANDO SISTEMA ===
+[2025-07-21 22:17:32] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 22:17:32] INFO: INICIO: Inicializando matrices
+[2025-07-21 22:17:32] INFO: FIN: Inicializando matrices
+[2025-07-21 22:17:41] INFO: Buscando informacion: Nombre alejandro
+[2025-07-21 22:18:03] INFO: Buscando informacion: Nombre alejandro
+[2025-07-21 22:18:48] WARN: Error: El valor solo puede contener letras y espacios.
+[2025-07-21 22:18:54] INFO: Buscando informacion: Nombre eudrey
+[2025-07-21 22:18:55] ERROR: Error: Debe ingresar un numero entero valido.
+[2025-07-21 22:19:06] INFO: INICIO: Desreferenciando matrices
+[2025-07-21 22:19:06] INFO: FIN: Desreferenciando matrices
+[2025-07-21 22:19:06] INFO: === FINALIZANDO SISTEMA ===
+[2025-07-21 22:45:06] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 22:45:06] INFO: INICIO: Inicializando matrices
+[2025-07-21 22:45:06] INFO: FIN: Inicializando matrices
+[2025-07-21 22:45:18] INFO: Buscando informacion: Nombre eudrey
+[2025-07-21 22:45:23] ERROR: Error fatal en el juego: Cannot invoke "String.equals(Object)" because "resultText" is null
+[2025-07-21 22:47:33] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 22:47:33] INFO: INICIO: Inicializando matrices
+[2025-07-21 22:47:33] INFO: FIN: Inicializando matrices
+[2025-07-21 22:47:37] INFO: Buscando informacion: Nombre eudrey
+[2025-07-21 22:47:38] ERROR: Error fatal en el juego: Cannot invoke "String.equals(Object)" because "resultText" is null
+[2025-07-21 22:49:14] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 22:49:14] INFO: INICIO: Inicializando matrices
+[2025-07-21 22:49:14] INFO: FIN: Inicializando matrices
+[2025-07-21 22:49:20] INFO: Buscando informacion: Nombre eudrey
+[2025-07-21 22:49:33] INFO: Buscando informacion: Nombre eudrey
+[2025-07-21 22:49:34] ERROR: Error fatal en el juego: Cannot invoke "String.length()" because "str" is null
+[2025-07-21 22:51:34] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 22:51:34] INFO: INICIO: Inicializando matrices
+[2025-07-21 22:51:34] INFO: FIN: Inicializando matrices
+[2025-07-21 22:51:55] INFO: Buscando informacion: Nombre eudrey
+[2025-07-21 22:51:56] ERROR: Busqueda por nombre (eudrey): SIN RESULTADOS
+[2025-07-21 22:52:48] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 22:52:48] INFO: INICIO: Inicializando matrices
+[2025-07-21 22:52:48] INFO: FIN: Inicializando matrices
+[2025-07-21 22:53:05] WARN: Error: El valor solo puede contener letras y espacios.
+[2025-07-21 22:53:08] INFO: Buscando informacion: Nombre eudrey
+[2025-07-21 22:53:56] INFO: Buscando informacion: Nombre eudrey
+[2025-07-21 22:53:57] ERROR: Busqueda por nombre (eudrey): SIN RESULTADOS
+[2025-07-21 22:54:00] INFO: INICIO: Desreferenciando matrices
+[2025-07-21 22:54:00] INFO: FIN: Desreferenciando matrices
+[2025-07-21 22:54:00] INFO: === FINALIZANDO SISTEMA ===
+[2025-07-21 22:54:54] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 22:54:54] INFO: INICIO: Inicializando matrices
+[2025-07-21 22:54:54] INFO: FIN: Inicializando matrices
+[2025-07-21 22:57:09] INFO: INICIO: Desreferenciando matrices
+[2025-07-21 22:57:09] INFO: FIN: Desreferenciando matrices
+[2025-07-21 22:57:09] INFO: === FINALIZANDO SISTEMA ===
+[2025-07-21 23:55:01] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 23:55:01] INFO: INICIO: Inicializando matrices
+[2025-07-21 23:55:01] INFO: FIN: Inicializando matrices
+[2025-07-21 23:55:23] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 23:55:23] INFO: INICIO: Inicializando matrices
+[2025-07-21 23:55:23] INFO: FIN: Inicializando matrices
+[2025-07-21 23:55:32] INFO: Buscando informacion: Mesa 25
+[2025-07-21 23:55:34] ERROR: Error fatal en el juego: For input string: "25"
+[2025-07-21 23:56:45] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 23:56:46] INFO: INICIO: Inicializando matrices
+[2025-07-21 23:56:46] INFO: FIN: Inicializando matrices
+[2025-07-21 23:56:49] INFO: Buscando informacion: Mesa 25
+[2025-07-21 23:56:52] ERROR: Error fatal en el juego: For input string: "25"
+[2025-07-21 23:59:41] INFO: === INICIANDO SISTEMA ===
+[2025-07-21 23:59:41] INFO: INICIO: Inicializando matrices
+[2025-07-21 23:59:41] INFO: FIN: Inicializando matrices
+[2025-07-21 23:59:48] INFO: Buscando informacion: Mesa 25
+[2025-07-21 23:59:50] ERROR: Error fatal en el juego: For input string: "25"
+[2025-07-22 00:00:24] INFO: === INICIANDO SISTEMA ===
+[2025-07-22 00:00:24] INFO: INICIO: Inicializando matrices
+[2025-07-22 00:00:24] INFO: FIN: Inicializando matrices
+[2025-07-22 00:00:29] INFO: Buscando informacion: Mesa 25
+[2025-07-22 00:00:30] ERROR: Error fatal en el juego: For input string: "25"
+[2025-07-22 00:01:32] INFO: === INICIANDO SISTEMA ===
+[2025-07-22 00:01:32] INFO: INICIO: Inicializando matrices
+[2025-07-22 00:01:32] INFO: FIN: Inicializando matrices
+[2025-07-22 00:01:36] INFO: Buscando informacion: Mesa 25
+[2025-07-22 00:01:37] ERROR: Error fatal en el juego: For input string: "25"
+[2025-07-22 00:02:23] INFO: === INICIANDO SISTEMA ===
+[2025-07-22 00:02:23] INFO: INICIO: Inicializando matrices
+[2025-07-22 00:02:23] INFO: FIN: Inicializando matrices
+[2025-07-22 00:02:26] INFO: Buscando informacion: Mesa 25
+[2025-07-22 00:02:27] ERROR: Error fatal en el juego: For input string: "25"
+[2025-07-22 00:03:36] INFO: === INICIANDO SISTEMA ===
+[2025-07-22 00:03:36] INFO: INICIO: Inicializando matrices
+[2025-07-22 00:03:36] INFO: FIN: Inicializando matrices
+[2025-07-22 00:03:41] INFO: Buscando informacion: Mesa 25
+[2025-07-22 00:03:42] ERROR: Error fatal en el juego: For input string: "25"
+[2025-07-22 00:04:00] INFO: === INICIANDO SISTEMA ===
+[2025-07-22 00:04:00] INFO: INICIO: Inicializando matrices
+[2025-07-22 00:04:00] INFO: FIN: Inicializando matrices
+[2025-07-22 00:04:03] INFO: Buscando informacion: Mesa 25
+[2025-07-22 00:04:04] ERROR: Error fatal en el juego: For input string: "25"
+[2025-07-22 00:04:23] INFO: === INICIANDO SISTEMA ===
+[2025-07-22 00:04:23] INFO: INICIO: Inicializando matrices
+[2025-07-22 00:04:23] INFO: FIN: Inicializando matrices
+[2025-07-22 00:04:25] INFO: Buscando informacion: Mesa 25
+[2025-07-22 00:04:26] ERROR: Error fatal en el juego: For input string: "25"
+[2025-07-22 00:05:55] INFO: === INICIANDO SISTEMA ===
+[2025-07-22 00:05:55] INFO: INICIO: Inicializando matrices
+[2025-07-22 00:05:56] INFO: FIN: Inicializando matrices
+[2025-07-22 00:05:58] INFO: Buscando informacion: Mesa 25
+[2025-07-22 00:07:09] INFO: === INICIANDO SISTEMA ===
+[2025-07-22 00:07:09] INFO: INICIO: Inicializando matrices
+[2025-07-22 00:07:09] INFO: FIN: Inicializando matrices
+[2025-07-22 00:07:15] INFO: Buscando informacion: Mesa 25
+[2025-07-22 00:08:51] INFO: === INICIANDO SISTEMA ===
+[2025-07-22 00:08:51] INFO: INICIO: Inicializando matrices
+[2025-07-22 00:08:51] INFO: FIN: Inicializando matrices
+[2025-07-22 00:08:55] INFO: Buscando informacion: Mesa 25
+[2025-07-22 00:08:56] ERROR: Error fatal en el juego: f != [D
+[2025-07-22 00:10:09] INFO: === INICIANDO SISTEMA ===
+[2025-07-22 00:10:09] INFO: INICIO: Inicializando matrices
+[2025-07-22 00:10:09] INFO: FIN: Inicializando matrices
+[2025-07-22 00:10:12] INFO: Buscando informacion: Mesa 25
+[2025-07-22 00:10:13] ERROR: Error fatal en el juego: f != [D
+[2025-07-22 00:10:58] INFO: === INICIANDO SISTEMA ===
+[2025-07-22 00:10:58] INFO: INICIO: Inicializando matrices
+[2025-07-22 00:10:58] INFO: FIN: Inicializando matrices
+[2025-07-22 00:11:00] INFO: Buscando informacion: Mesa 25
+[2025-07-22 00:11:01] ERROR: Error fatal en el juego: f != [D
+[2025-07-22 00:11:48] INFO: === INICIANDO SISTEMA ===
+[2025-07-22 00:11:48] INFO: INICIO: Inicializando matrices
+[2025-07-22 00:11:48] INFO: FIN: Inicializando matrices
+[2025-07-22 00:11:50] INFO: Buscando informacion: Mesa 25
+[2025-07-22 00:11:51] ERROR: Error fatal en el juego: f != [D
+[2025-07-22 00:12:19] INFO: === INICIANDO SISTEMA ===
+[2025-07-22 00:12:19] INFO: INICIO: Inicializando matrices
+[2025-07-22 00:12:19] INFO: FIN: Inicializando matrices
+[2025-07-22 00:12:22] INFO: Buscando informacion: Mesa 25
+[2025-07-22 00:12:31] INFO: INICIO: Desreferenciando matrices
+[2025-07-22 00:12:31] INFO: FIN: Desreferenciando matrices
+[2025-07-22 00:12:31] INFO: === FINALIZANDO SISTEMA ===
+[2025-07-22 00:24:02] INFO: === INICIANDO SISTEMA ===
+[2025-07-22 00:24:02] INFO: INICIO: Inicializando matrices
+[2025-07-22 00:24:02] INFO: FIN: Inicializando matrices
+[2025-07-22 00:24:10] WARN: Cantidad invalida. Debe ser entre 1 y 30
+[2025-07-22 00:24:13] WARN: Cantidad invalida. Debe ser entre 1 y 30
+[2025-07-22 00:24:15] INFO: Buscando informacion: Mesa 30
+[2025-07-22 00:24:16] ERROR: Busqueda por mesa (30): SIN RESULTADOS
+[2025-07-22 00:24:23] INFO: Buscando informacion: Mesa 25
+[2025-07-22 00:24:49] INFO: Buscando informacion: Mesa 26
+[2025-07-22 00:25:32] INFO: Buscando informacion: Mesa 24

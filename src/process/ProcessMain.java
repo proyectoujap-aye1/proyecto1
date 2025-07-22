@@ -1,10 +1,13 @@
 package process;
 
+import java.io.File;
+
+import utils.FileManager;
 import utils.LoggerUtil;
 
 public class ProcessMain {
 
-    public static void initAllArrays(boolean[] tables, int[] personsInTable, String[][] personNames, int[][] personItems,
+    public static void initAllArrays (boolean[] tables, int[] personsInTable, String[][] personNames, int[][] personItems,
     String[][][] itemNames, int[][][] itemQuants, double[][][] itemPrices) {
         LoggerUtil.log("INICIO: Inicializando matrices");
         Process.initMatrix(tables);
@@ -17,7 +20,7 @@ public class ProcessMain {
         LoggerUtil.log("FIN: Inicializando matrices");
     }
 
-    public static void clearAllArrays(boolean[] tables, int[] personsInTable, String[][] personNames, int[][] personItems,
+    public static void clearAllArrays (boolean[] tables, int[] personsInTable, String[][] personNames, int[][] personItems,
     String[][][] itemNames, int[][][] itemQuants, double[][][] itemPrices) {
         LoggerUtil.log("INICIO: Desreferenciando matrices");
         tables = null;
@@ -58,5 +61,17 @@ public class ProcessMain {
 
         Process.buildInvoiceFooter(invoice, invoiceTotal);
         return invoice.toString();
+    }
+
+    public static String searchNameInFile (File file, String name) {
+        String invoiceText = FileManager.getTextFromFile(file);
+        String searchResult = Process.searchNameInText(invoiceText, name);
+        return searchResult;
+    }
+
+    public static String searchTableInFile (File file, int table) {
+        String invoiceText = FileManager.getTextFromFile(file);
+        String searchResult = Process.searchTableInText(invoiceText, table);
+        return searchResult;
     }
 }
