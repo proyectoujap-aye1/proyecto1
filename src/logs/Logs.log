@@ -27,3 +27,14 @@
 [2025-07-22 22:25:04] INFO: INICIO: Desreferenciando matrices
 [2025-07-22 22:25:04] INFO: FIN: Desreferenciando matrices
 [2025-07-22 22:25:04] INFO: === FINALIZANDO SISTEMA ===
+[2025-07-22 23:55:38] INFO: === INICIANDO SISTEMA ===
+[2025-07-22 23:55:38] INFO: INICIO: Inicializando matrices
+[2025-07-22 23:55:38] INFO: FIN: Inicializando matrices
+[2025-07-22 23:55:48] ERROR: Error: Debe ingresar un numero entero valido.
+[2025-07-22 23:55:49] WARN: Cantidad invalida. Debe ser entre 1 y 30
+[2025-07-22 23:55:51] INFO: Buscando informacion: Mesa 11
+[2025-07-22 23:55:52] ERROR: Busqueda por mesa (11): SIN RESULTADOS
+[2025-07-22 23:55:57] INFO: Buscando informacion: Nombre alejandro
+[2025-07-22 23:56:04] INFO: INICIO: Desreferenciando matrices
+[2025-07-22 23:56:04] INFO: FIN: Desreferenciando matrices
+[2025-07-22 23:56:04] INFO: === FINALIZANDO SISTEMA ===
