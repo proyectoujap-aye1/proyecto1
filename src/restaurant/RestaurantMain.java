@@ -3,6 +3,10 @@ package restaurant;
 import java.io.File;
 import java.util.Scanner;
 
+import models.Diner;
+import models.Item;
+import models.Table;
+import process.Process;
 import process.ProcessMain;
 import utils.LoggerUtil;
 
@@ -14,18 +18,12 @@ public class RestaurantMain {
     private static final int MAX_ITEMS_BY_PERSON = 3;
 
     // MAIN ARRAYS
-    private static int[] personsInTable = new int[MAX_TABLES];
-    private static int[][] personItems = new int[MAX_TABLES][MAX_PERSONS_BY_TABLE];
-    private static int[][][] itemQuants = new int[MAX_TABLES][MAX_PERSONS_BY_TABLE][MAX_ITEMS_BY_PERSON];
-    private static boolean[] tables = new boolean[MAX_TABLES];
-    private static String[][] personNames = new String[MAX_TABLES][MAX_PERSONS_BY_TABLE];
-    private static String[][][] itemNames = new String[MAX_TABLES][MAX_PERSONS_BY_TABLE][MAX_ITEMS_BY_PERSON];
-    private static double[][][] itemPrices = new double[MAX_TABLES][MAX_PERSONS_BY_TABLE][MAX_ITEMS_BY_PERSON];
+    private static Table[] tablesNew = new Table[MAX_TABLES];
 
     public static void init () {
-        ProcessMain.initAllArrays(tables, personsInTable, personNames, personItems, itemNames, itemQuants, itemPrices);
+        ProcessMain.initAllArrays(tablesNew);
         showMenu();
-        ProcessMain.clearAllArrays(tables, personsInTable, personNames, personItems, itemNames, itemQuants, itemPrices);
+        ProcessMain.clearAllArrays(tablesNew);
     }
 
     private static void showMenu () {
@@ -71,28 +69,43 @@ public class RestaurantMain {
     }
 
     private static void addOrder (Scanner scanner) {
-        int table = Restaurant.setTableNumber(scanner, tables, MAX_TABLES);
-        int persons = Restaurant.setPersonsInTable(scanner, table, personsInTable, MAX_PERSONS_BY_TABLE);
-        Restaurant.namesInTable(scanner, table, persons, personNames);
+        Table table = Restaurant.setTableNumber(scanner, tablesNew, MAX_TABLES);
+        int persons = Restaurant.setPersonsInTable(scanner, table, MAX_PERSONS_BY_TABLE);
+
+        Diner[] diners = new Diner[persons];
+        Process.initMatrix(diners);
+        Restaurant.namesInTable(scanner, diners);
 
         for (int i = 0; i < persons; i++) {
-            String name = personNames[table - 1][i];
-            int items = Restaurant.setItemsPerson(scanner, personNames[table - 1], personItems[table - 1], i, MAX_ITEMS_BY_PERSON);
+            Diner diner = diners[i];
+            int products = Restaurant.setItemsPerson(scanner, diner, MAX_ITEMS_BY_PERSON);
 
-            for (int j = 0; j < items; j++) {
-                System.out.println("\nItem " + (j + 1) + " - " + name.toUpperCase());
-                Restaurant.setItemName(scanner, itemNames[table - 1][i], j);
-                Restaurant.setItemQuant(scanner, itemQuants[table - 1][i], j);
-                Restaurant.setItemPrice(scanner, itemPrices[table - 1][i], j);
+            Item[] items = new Item[products];
+            Process.initMatrix(items);
+
+            for (int j = 0; j < products; j++) {
+                Item item = items[j];
+                System.out.println("\nItem #" + (j + 1) + " - " + diner.getName().toUpperCase());
+
+                Restaurant.setItemName(scanner, item, j);
+                Restaurant.setItemQuant(scanner, item, j);
+                Restaurant.setItemPrice(scanner, item, j);
             }
+
+            diner.setItems(items);
+            items = null;
         }
 
-        Restaurant.generateInvoice(table, persons, personNames, personItems, itemNames, itemQuants, itemPrices);
+        table.setDiners(diners);
+        diners = null;
+
+        Restaurant.generateInvoice(table);
+        table = null;
     }
 
     private static void showTables () {
-        for (int i = 0; i < tables.length; i++) {
-            Restaurant.showStatusTable(i, tables[i]);
+        for (int i = 0; i < tablesNew.length; i++) {
+            Restaurant.showStatusTable(tablesNew[i]);
         }
     }
 

@@ -1,5 +1,0 @@
-Cliente: eudrey
------------------------------------------------------------
-refresco - Cantidad: 2 - Precio: $35.0 - Subtotal: $70.0
-tostones - Cantidad: 2 - Precio: $20.0 - Subtotal: $40.0
-Total de eudrey: $110.0

@@ -11,7 +11,7 @@ public class Main {
             RestaurantMain.init();
             LoggerUtil.log("=== FINALIZANDO SISTEMA ===");
         } catch (Exception e) {
-            LoggerUtil.logError("Error fatal en el juego: " + e.getMessage());
+            LoggerUtil.logError("Error fatal en el sistema: " + e.getMessage());
             System.out.println("Ha ocurrido un error fatal. Revisa los logs para mas informacion.");
         }
     }

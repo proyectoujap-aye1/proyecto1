@@ -3,6 +3,9 @@ package restaurant;
 import java.io.File;
 import java.util.Scanner;
 
+import models.Diner;
+import models.Item;
+import models.Table;
 import process.ProcessMain;
 import utils.FileManager;
 import utils.LoggerUtil;
@@ -11,76 +14,62 @@ import utils.Validate;
 public class Restaurant {
 
     // -------------------------------------------------------------------------------------------------------------- ADD ORDER
-    public static int setTableNumber (Scanner scanner, boolean[] tables, int MAX) {
+    public static Table setTableNumber(Scanner scanner, Table[] tables, int MAX) {
         if (Validate.isValidArr(tables)) {
             String msg = "Ingrese el numero de mesa (1-" + MAX + "): ";
             int tableNumber = Validate.scanValidInteger(scanner, msg, MAX);
-            while (tables[tableNumber - 1]) {
+            while (tables[tableNumber - 1].isBusy()) {
                 System.out.println("Mesa " + tableNumber + " ya ocupada.\n");
                 tableNumber = Validate.scanValidInteger(scanner, msg, MAX);
             }
-            tables[tableNumber - 1] = true;
-            return tableNumber;
+            tables[tableNumber - 1].setBusy(true);
+            return tables[tableNumber - 1];
         }
 
-        return -1;
+        return null;
     }
 
-    public static int setPersonsInTable (Scanner scanner, int tableNumber, int[] personsInTable, int MAX) {
-        if (Validate.isValidArr(personsInTable)) {
-            int persons = Validate.scanValidInteger(scanner, "Ingrese el numero de comensales (1-" + MAX + "): ", MAX);
-            personsInTable[tableNumber - 1] = persons;
-            return persons;
-        }
-
-        return -1;
+    public static int setPersonsInTable(Scanner scanner, Table table, int MAX) {
+        int persons = Validate.scanValidInteger(scanner, "Ingrese el numero de comensales (1-" + MAX + "): ", MAX);
+        table.setPersonsInTable(persons);
+        return persons;
     }
 
-    public static void namesInTable (Scanner scanner, int tableNumber, int personsNumber, String[][] personNames) {
-        if (Validate.isValidArr(personNames[0])) {
+    public static void namesInTable(Scanner scanner, Diner[] diners) {
+        if (Validate.isValidArr(diners)) {
             System.out.println();
-            for (int i = 0; i < personsNumber; i++)
-                personNames[tableNumber - 1][i] = Validate.scanValidString(scanner, "Nombre de persona " + (i + 1) + ": ");
+            for (int i = 0; i < diners.length; i++) {
+                String name = Validate.scanValidString(scanner, "Nombre de persona " + (i + 1) + ": ");
+                diners[i].setName(name);
+            }
         }
     }
 
-    public static int setItemsPerson (Scanner scanner, String[] names, int[] items, int index, int MAX) {
-        if (Validate.isValidArr(names) && Validate.isValidArr(items)) {
-            System.out.println();
-            int itemsPerson = Validate.scanValidInteger(scanner, "Numero de items de " + names[index] + " (1-" + MAX + "): ", MAX);
-            items[index] = itemsPerson;
-            return itemsPerson;
-        }
-
-        return -1;
+    public static int setItemsPerson(Scanner scanner, Diner diner, int MAX) {
+        System.out.println();
+        int itemsPerson = Validate.scanValidInteger(scanner, "Numero de items de " + diner.getName() + " (1-" + MAX + "): ", MAX);
+        diner.setNumberOfItems(itemsPerson);
+        return itemsPerson;
     }
 
-    public static void setItemName (Scanner scanner, String itemNames[], int index) {
-        if (Validate.isValidArr(itemNames)) {
-            String name = Validate.scanValidString(scanner, "- Nombre item " + (index + 1) + ": ");
-            itemNames[index] = name;
-        }
+    public static void setItemName(Scanner scanner, Item item, int index) {
+        String name = Validate.scanValidString(scanner, "- Nombre item #" + (index + 1) + ": ");
+        item.setName(name);
     }
 
-    public static void setItemQuant (Scanner scanner, int itemQuants[], int index) {
-        if (Validate.isValidArr(itemQuants)) {
-            int quant = Validate.scanValidInteger(scanner,  "- Cantidad item " + (index + 1) + ": ", 0);
-            itemQuants[index] = quant;
-        }
+    public static void setItemQuant(Scanner scanner, Item item, int index) {
+        int quant = Validate.scanValidInteger(scanner,  "- Cantidad item #" + (index + 1) + ": ", 0);
+        item.setQuantity(quant);
     }
 
-    public static void setItemPrice (Scanner scanner, double itemPrices[], int index) {
-        if (Validate.isValidArr(itemPrices)) {
-            double price = Validate.scanValidDouble(scanner,  "- Precio unitario item " + (index + 1) + ": ", 0);
-            itemPrices[index] = price;
-        }
+    public static void setItemPrice(Scanner scanner, Item item, int index) {
+        double price = Validate.scanValidDouble(scanner,  "- Precio unitario item #" + (index + 1) + ": ", 0);
+        item.setPrice(price);
     }
 
-    public static void generateInvoice(int table, int persons, String[][] personNames, int[][] personItems,
-    String[][][] itemNames, int[][][] itemQuants, double[][][] itemPrices) {
-        if (Validate.isValidArr(personNames[0]) && Validate.isValidArr(personItems[0]) && Validate.isValidArr(itemNames[0][0]) &&
-        Validate.isValidArr(itemQuants[0][0]) && Validate.isValidArr(itemPrices[0][0])) {
-            String invoiceText = ProcessMain.buildInvoiceText(table, persons, personNames, personItems, itemNames, itemQuants, itemPrices);
+    public static void generateInvoice(Table table) {
+        if (table != null) {
+            String invoiceText = ProcessMain.buildInvoiceText(table);
             String fileNameInvoice = FileManager.getInvoiceFileName();
             FileManager.writeInFile(fileNameInvoice, invoiceText);
             System.out.println("\nComanda generada con exito: " + fileNameInvoice);
@@ -88,8 +77,8 @@ public class Restaurant {
     }
 
     // -------------------------------------------------------------------------------------------------------------- SHOW TABLES
-    public static void showStatusTable(int index, boolean isBusy) {
-        System.out.printf("- Mesa %02d: %s\n", index + 1, isBusy ? "OCUPADA" : "LIBRE");
+    public static void showStatusTable(Table table) {
+        System.out.printf("- Mesa %02d: %s\n", table.getNumber(), table.isBusy() ? "OCUPADA" : "LIBRE");
     }
 
     // -------------------------------------------------------------------------------------------------------------- SEARCH
@@ -113,7 +102,7 @@ public class Restaurant {
             System.out.println("\nBusqueda completada con exito, resultado en: " + fileNameResult);
         } else {
             LoggerUtil.logError("Busqueda por nombre (" + nameToSearch + "): SIN RESULTADOS");
-            System.out.println("\nNo se encontraron resultados por nombre: " + nameToSearch);
+            System.out.println("\nNo se encontraron resultados para el nombre " + nameToSearch);
         }
     }
 
@@ -131,7 +120,7 @@ public class Restaurant {
             System.out.println("\nBusqueda completada con exito, resultado en: " + fileNameResult);
         } else {
             LoggerUtil.logError("Busqueda por mesa (" + tableToSearch + "): SIN RESULTADOS");
-            System.out.println("\nNo se encontraron resultados por mesa: " + tableToSearch);
+            System.out.println("\nNo se encontraron resultados para la mesa " + tableToSearch);
         }
     }
 }

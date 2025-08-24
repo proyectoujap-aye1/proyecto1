@@ -1,76 +1,46 @@
 package process;
 
+import models.Diner;
+import models.Item;
+import models.Table;
+
 public class Process {
 
     // ----------------------------------------------------------------------------------------------------------------------------- INITS
-
-    public static void initMatrix (int[] m) {
-        if (m != null) {
-            for (int i = 0; i < m.length; i++)
-                m[i] = 0;
-        }
-    }
-
-    public static void initMatrix (boolean[] m) {
-        if (m != null) {
-            for (int i = 0; i < m.length; i++)
-                m[i] = false;
-        }
-    }
-
-    public static void initMatrix (int[][] m) {
+    public static void initMatrix (Table[] m) {
         if (m != null) {
             for (int i = 0; i < m.length; i++) {
-                for (int j = 0; j < m[0].length; j++)
-                    m[i][j] = 0;
+                Table table = new Table();
+                table.setNumber(i + 1);
+                table.setPersonsInTable(0);
+                table.setBusy(false);
+                m[i] = table;
             }
         }
     }
 
-    public static void initMatrix (String[][] m) {
+    public static void initMatrix (Diner[] m) {
         if (m != null) {
             for (int i = 0; i < m.length; i++) {
-                for (int j = 0; j < m[0].length; j++)
-                    m[i][j] = "";
+                Diner diner = new Diner();
+                diner.setNumberOfItems(0);
+                m[i] = diner;
             }
         }
     }
 
-    public static void initMatrix (int[][][] m) {
+    public static void initMatrix (Item[] m) {
         if (m != null) {
             for (int i = 0; i < m.length; i++) {
-                for (int j = 0; j < m[0].length; j++) {
-                    for (int k = 0; k < m[0][0].length; k++)
-                        m[i][j][k] = 0;
-                }
-            }
-        }
-    }
-
-    public static void initMatrix (double[][][] m) {
-        if (m != null) {
-            for (int i = 0; i < m.length; i++) {
-                for (int j = 0; j < m[0].length; j++) {
-                    for (int k = 0; k < m[0][0].length; k++)
-                        m[i][j][k] = 0;
-                }
-            }
-        }
-    }
-
-    public static void initMatrix (String[][][] m) {
-        if (m != null) {
-            for (int i = 0; i < m.length; i++) {
-                for (int j = 0; j < m[0].length; j++) {
-                    for (int k = 0; k < m[0][0].length; k++)
-                        m[i][j][k] = "";
-                }
+                Item item = new Item();
+                item.setQuantity(0);
+                item.setPrice(0.00);
+                m[i] = item;
             }
         }
     }
 
     // ----------------------------------------------------------------------------------------------------------------------------- INVOICE
-
     public static void buildInvoiceHeader (StringBuilder invoice, int tableNumber) {
         invoice.append("Factura\n");
         invoice.append("Mesa: ").append(tableNumber).append("\n\n");
@@ -81,10 +51,10 @@ public class Process {
         invoice.append("-----------------------------------------------------------\n");
     }
 
-    public static double buildInvoiceBody (StringBuilder invoice, String[] names, int[] quants, double[] prices, int index) {
-        String name = names[index];
-        int quant = quants[index];
-        double price = prices[index];
+    public static double buildInvoiceBody(StringBuilder invoice, Item item) {
+        String name = item.getName();
+        int quant = item.getQuantity();
+        double price = item.getPrice();
 
         double summary = quant * price;
         invoice.append(name).append(" - Cantidad: ").append(quant).append(" - Precio: $").append(price)
@@ -103,7 +73,6 @@ public class Process {
     }
 
     // ----------------------------------------------------------------------------------------------------------------------------- SEARCH
-
     public static String searchNameInText (String text, String name) {
         // Caso base: si el texto está vacío
         if (text.isEmpty()) {
@@ -155,7 +124,7 @@ public class Process {
         return null;
     }
 
-    private static String processTable(String[] lines, int index, int table, int[] counters, double[] total) {
+    private static String processTable (String[] lines, int index, int table, int[] counters, double[] total) {
         if (index >= lines.length)
             return null;
 
@@ -173,8 +142,7 @@ public class Process {
         return result; // OPERACIÓN POSTERIOR a la llamada recursiva -> Recursión no final
     }
 
-    // Recursividad no final
-    private static String processClients(String[] lines, int index, int[] counters, double[] total) {
+    private static String processClients (String[] lines, int index, int[] counters, double[] total) {
         if (index >= lines.length)
             return "fin";
 
@@ -188,8 +156,7 @@ public class Process {
         return result; // OPERACIÓN POSTERIOR a la llamada recursiva -> Recursión no final
     }
 
-    // Recursividad no final
-    private static String processItems(String[] lines, int index, int[] counters, double[] total) {
+    private static String processItems (String[] lines, int index, int[] counters, double[] total) {
         if (index >= lines.length)
             return "fin";
 
