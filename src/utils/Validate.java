@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 import java.util.Scanner;
 
+import models.Diner;
+import models.Table;
+
 public class Validate {
 
     public static int scanValidInteger(Scanner scanner, String msg, int limit) {
@@ -14,16 +17,22 @@ public class Validate {
                 String enteredValue = scanner.nextLine();
                 int value = Integer.parseInt(enteredValue);
 
-                if (limit > 0) {
-                    if (value < 1 || value > limit) {
-                        String error = "Cantidad invalida. Debe ser entre 1 y " + limit;
-                        LoggerUtil.logWarn(error);
-                        System.out.println(error + "\n");
-                    } else {
+                if (value > 0) {
+                    if (limit > 0) {
+                        if (value < 1 || value > limit) {
+                            String error = "Cantidad invalida. Debe ser entre 1 y " + limit;
+                            LoggerUtil.logWarn(error);
+                            System.out.println(error + "\n");
+                        } else {
+                            return value;
+                        }
+                    } else { // No tiene limite
                         return value;
                     }
-                } else { // No tiene limite
-                    return value;
+                } else {
+                    String error = "Cantidad invalida. Debe ser mayor a 0";
+                    LoggerUtil.logWarn(error);
+                    System.out.println(error + "\n");
                 }
             } catch (NumberFormatException e) {
                 String error = "Error: Debe ingresar un numero entero valido.";
@@ -40,16 +49,22 @@ public class Validate {
                 String enteredValue = scanner.nextLine();
                 double value = Double.parseDouble(enteredValue);
 
-                if (limit > 0) {
-                    if (value < 1 || value > limit) {
-                        String error = "Cantidad invalida. Debe ser entre 1 y " + limit;
-                        LoggerUtil.logWarn(error);
-                        System.out.println(error + "\n");
-                    } else {
+                if (value > 0) {
+                    if (limit > 0) {
+                        if (value < 1 || value > limit) {
+                            String error = "Cantidad invalida. Debe ser entre 1 y " + limit;
+                            LoggerUtil.logWarn(error);
+                            System.out.println(error + "\n");
+                        } else {
+                            return value;
+                        }
+                    } else { // No tiene limite
                         return value;
                     }
-                } else { // No tiene limite
-                    return value;
+                } else {
+                    String error = "Cantidad invalida. Debe ser mayor a 0";
+                    LoggerUtil.logWarn(error);
+                    System.out.println(error + "\n");
                 }
             } catch (NumberFormatException e) {
                 String error = "Error: Debe ingresar un numero decimal valido.";
@@ -131,5 +146,14 @@ public class Validate {
         }
 
         return false;
+    }
+
+    // NEW FUNCTIONS
+    public static boolean isValidArr(Table[] data) {
+        return data != null && data.length > 0;
+    }
+
+    public static boolean isValidArr(Diner[] data) {
+        return data != null && data.length > 0;
     }
 }
