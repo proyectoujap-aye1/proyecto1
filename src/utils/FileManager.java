@@ -22,6 +22,11 @@ public class FileManager {
         return INVOICE_DIRECTORY;
     }
 
+    public static String getResultsDirectory () {
+        verifyFilePath(RESULTS_DIRECTORY);
+        return RESULTS_DIRECTORY;
+    }
+
     public static String getInvoiceFileName () {
         verifyFilePath(INVOICE_DIRECTORY);
         LocalDateTime current = LocalDateTime.now();
