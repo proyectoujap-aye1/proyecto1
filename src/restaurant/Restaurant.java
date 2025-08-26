@@ -7,6 +7,7 @@ import models.Diner;
 import models.Item;
 import models.Table;
 import process.ProcessMain;
+import utils.ArchiveUtil;
 import utils.FileManager;
 import utils.LoggerUtil;
 import utils.Validate;
@@ -136,6 +137,30 @@ public class Restaurant {
         } else {
             LoggerUtil.logError("Busqueda de clientes: SIN RESULTADOS");
             System.out.println("\nNo se encontraron resultados de clientes");
+        }
+    }
+
+    public static void searchInfoByItem (Scanner scanner, File[] invoices) {
+        try {
+            ArchiveUtil utilInvoices = new ArchiveUtil(FileManager.getInvoiceDirectory());
+            ArchiveUtil utilResults = new ArchiveUtil(FileManager.getResultsDirectory());
+
+            FileManager.listFiles(invoices);
+            int selectedFile = Validate.scanValidInteger(scanner, "Selecionar archivo a consultar: ", invoices.length);
+
+            String resultText = ProcessMain.searchItemsInFile(invoices[selectedFile - 1], utilInvoices);
+            if (resultText != null && !resultText.isEmpty()) {
+                String fileNameResult = FileManager.getResultFileName("ITEMS", "INVOICE");
+                String fileNameAux = fileNameResult.replaceAll("src/results", "").replaceAll(".txt", "");
+                utilResults.setCreateArchive(resultText, fileNameAux, false);
+                System.out.println("\nBusqueda completada con exito, resultado en: " + fileNameResult);
+            } else {
+                LoggerUtil.logError("Busqueda de items: SIN RESULTADOS");
+                System.out.println("\nNo se encontraron resultados de items");
+            }
+        } catch (Exception e) {
+            LoggerUtil.logError("Error buscando info por item: " + e.getMessage());
+            System.out.println("Ha ocurrido un error buscando info por item.");
         }
     }
 }

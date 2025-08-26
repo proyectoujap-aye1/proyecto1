@@ -3,6 +3,8 @@ package process;
 import models.Diner;
 import models.Item;
 import models.Table;
+import types.Queue;
+import types.Stack;
 
 public class Process {
 
@@ -177,5 +179,59 @@ public class Process {
 
         String result = processItems(lines, index + 1, counters, total); // Llamada recursiva para seguir procesando
         return result; // OPERACIÓN POSTERIOR a la llamada recursiva -> Recursión no final
+    }
+
+    public static Stack<String> extractClients (String text) {
+        Stack<String> result = new Stack<>();
+        String[] lines = text.split("\n");
+
+        for (String line : lines) {
+            if (line.startsWith("Cliente: ")) {
+                String clientName = line.substring(9).trim(); // Extraer el nombre del cliente
+                result.push(clientName); // Agregar a la pila
+            }
+        }
+
+        return result;
+    }
+
+    public static Queue<String> extractItems (String text) {
+        Queue<String> result = new Queue<>();
+        String[] lines = text.split("\n");
+        boolean readingClient = false;
+
+        for (String line : lines) {
+            if (line.startsWith("Cliente: ")) {
+                readingClient = true; // Comienza a procesar los ítems de un cliente
+            } else if (line.startsWith("Total de ")) {
+                readingClient = false; // Termina de procesar los ítems de un cliente
+            } else if (readingClient && line.contains("Cantidad:")) {
+                // Extraer el nombre del ítem y la cantidad
+                String[] parts = line.split(" - ");
+                String nameItem = parts[0].trim();
+                String quantItem = parts[1].split(": ")[1].trim(); // Obtener la cantidad
+                result.enqueue(nameItem + " x" + quantItem); // Formatear y agregar a la lista
+            }
+        }
+
+        return result;
+    }
+
+    public static void desrefStack (Stack<String> stack) {
+        System.out.println();
+        while (stack.getSize() > 0) {
+            System.out.println("Pop: " + stack.showStack());
+            stack.pop();
+        }
+        System.out.println();
+    }
+
+    public static void desrefQueue (Queue<String> queue) {
+        System.out.println();
+        while (queue.getSize() > 0) {
+            System.out.println("Dequeue: " + queue.getPeek());
+            queue.dequeue();
+        }
+        System.out.println();
     }
 }

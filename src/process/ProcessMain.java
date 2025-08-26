@@ -1,11 +1,14 @@
 package process;
 
 import java.io.File;
+import java.util.Scanner;
 
 import models.Diner;
 import models.Item;
 import models.Table;
+import types.Queue;
 import types.Stack;
+import utils.ArchiveUtil;
 import utils.FileManager;
 import utils.LoggerUtil;
 
@@ -68,20 +71,31 @@ public class ProcessMain {
 
     public static String searchClientsInFile (File file) {
         String invoiceText = FileManager.getTextFromFile(file);
-        Stack<String> clients = extractClients(invoiceText);
-        return clients.toString();
+
+        Stack<String> clients = Process.extractClients(invoiceText);
+        String result = clients.toString();
+        Process.desrefStack(clients);
+
+        return result;
     }
 
-    private static Stack<String> extractClients (String text) {
-        Stack<String> result = new Stack<>();
-        String[] lines = text.split("\n");
-
-        for (String line : lines) {
-            if (line.startsWith("Cliente: ")) {
-                String clientName = line.substring(9).trim(); // Extraer el nombre del cliente
-                result.push(clientName); // Agregar a la pila
-            }
+    public static String searchItemsInFile (File file, ArchiveUtil util) {
+        String fileName = file.getName();
+        Scanner fileScanner = util.getArchive(fileName);
+        if (fileScanner == null) {
+            LoggerUtil.logWarn("El archivo " + fileName + " no existe.");
+            System.out.println("El archivo " + fileName + " no existe.");
+            return null;
         }
+
+        StringBuilder content = new StringBuilder();
+        while (fileScanner.hasNextLine())
+            content.append(fileScanner.nextLine()).append("\n");
+        fileScanner.close();
+
+        Queue<String> items = Process.extractItems(content.toString());
+        String result = items.toString();
+        Process.desrefQueue(items);
 
         return result;
     }
