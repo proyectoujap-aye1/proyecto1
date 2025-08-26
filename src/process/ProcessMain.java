@@ -1,55 +1,49 @@
 package process;
 
 import java.io.File;
+import java.util.Scanner;
 
+import models.Diner;
+import models.Item;
+import models.Table;
+import types.Queue;
+import types.Stack;
+import utils.ArchiveUtil;
 import utils.FileManager;
 import utils.LoggerUtil;
 
 public class ProcessMain {
 
-    public static void initAllArrays (boolean[] tables, int[] personsInTable, String[][] personNames, int[][] personItems,
-    String[][][] itemNames, int[][][] itemQuants, double[][][] itemPrices) {
-        LoggerUtil.log("INICIO: Inicializando matrices");
+    public static void initAllArrays(Table[] tables) {
+        LoggerUtil.log("INICIO: Inicializando arreglos");
         Process.initMatrix(tables);
-        Process.initMatrix(personsInTable);
-        Process.initMatrix(personNames);
-        Process.initMatrix(personItems);
-        Process.initMatrix(itemNames);
-        Process.initMatrix(itemQuants);
-        Process.initMatrix(itemPrices);
-        LoggerUtil.log("FIN: Inicializando matrices");
+        LoggerUtil.log("FIN: Inicializando arreglos");
     }
 
-    public static void clearAllArrays (boolean[] tables, int[] personsInTable, String[][] personNames, int[][] personItems,
-    String[][][] itemNames, int[][][] itemQuants, double[][][] itemPrices) {
-        LoggerUtil.log("INICIO: Desreferenciando matrices");
+    public static void clearAllArrays(Table[] tables) {
+        LoggerUtil.log("INICIO: Desreferenciando arreglos");
         tables = null;
-        personsInTable = null;
-        personNames = null;
-        personItems = null;
-        itemNames = null;
-        itemQuants = null;
-        itemPrices = null;
-        LoggerUtil.log("FIN: Desreferenciando matrices");
+        LoggerUtil.log("FIN: Desreferenciando arreglos");
     }
 
-    public static String buildInvoiceText (int tableNumber, int personsNumber, String[][] personNames, int[][] personItems,
-    String[][][] itemNames, int[][][] itemQuants, double[][][] itemPrices) {
-
+    public static String buildInvoiceText(Table table) {
+        Diner[] diners = table.getDiners();
         StringBuilder invoice = new StringBuilder();
         double invoiceTotal = 0;
 
-        Process.buildInvoiceHeader(invoice, tableNumber);
-        for (int personIndex = 0; personIndex < personsNumber; personIndex++) {
-            if (personNames[tableNumber - 1][personIndex] != null) {
-                String personName = personNames[tableNumber - 1][personIndex];
+        Process.buildInvoiceHeader(invoice, table.getNumber());
+        for (int personIndex = 0; personIndex < table.getPersonsInTable(); personIndex++) {
+            Diner diner = diners[personIndex];
+            if (diner != null) {
+                String personName = diner.getName();
+                Item[] items = diner.getItems();
                 double personTotal = 0;
 
                 Process.buildClientInvoiceHeader(invoice, personName);
-                for (int itemIndex = 0; itemIndex < personItems[tableNumber - 1][personIndex]; itemIndex++) {
-                    if (itemNames[tableNumber - 1][personIndex][itemIndex] != null) {
-                        double summary = Process.buildInvoiceBody(invoice, itemNames[tableNumber - 1][personIndex],
-                            itemQuants[tableNumber - 1][personIndex], itemPrices[tableNumber - 1][personIndex], itemIndex);
+                for (int itemIndex = 0; itemIndex < diner.getNumberOfItems(); itemIndex++) {
+                    Item item = items[itemIndex];
+                    if (item != null) {
+                        double summary = Process.buildInvoiceBody(invoice, item);
                         personTotal += summary;
                     }
                 }
@@ -73,5 +67,36 @@ public class ProcessMain {
         String invoiceText = FileManager.getTextFromFile(file);
         String searchResult = Process.searchTableInText(invoiceText, table);
         return searchResult;
+    }
+
+    public static String searchClientsInFile (File file) {
+        String invoiceText = FileManager.getTextFromFile(file);
+
+        Stack<String> clients = Process.extractClients(invoiceText);
+        String result = clients.toString();
+        Process.desrefStack(clients);
+
+        return result;
+    }
+
+    public static String searchItemsInFile (File file, ArchiveUtil util) {
+        String fileName = file.getName();
+        Scanner fileScanner = util.getArchive(fileName);
+        if (fileScanner == null) {
+            LoggerUtil.logWarn("El archivo " + fileName + " no existe.");
+            System.out.println("El archivo " + fileName + " no existe.");
+            return null;
+        }
+
+        StringBuilder content = new StringBuilder();
+        while (fileScanner.hasNextLine())
+            content.append(fileScanner.nextLine()).append("\n");
+        fileScanner.close();
+
+        Queue<String> items = Process.extractItems(content.toString());
+        String result = items.toString();
+        Process.desrefQueue(items);
+
+        return result;
     }
 }
