@@ -123,4 +123,19 @@ public class Restaurant {
             System.out.println("\nNo se encontraron resultados para la mesa " + tableToSearch);
         }
     }
+
+    public static void searchInfoByClient (Scanner scanner, File[] invoices) {
+        FileManager.listFiles(invoices);
+        int selectedFile = Validate.scanValidInteger(scanner, "Selecionar archivo a consultar: ", invoices.length);
+
+        String resultText = ProcessMain.searchClientsInFile(invoices[selectedFile - 1]);
+        if (resultText != null && !resultText.isEmpty()) {
+            String fileNameResult = FileManager.getResultFileName("CLIENTS", "INVOICE");
+            FileManager.writeInFile(fileNameResult, resultText);
+            System.out.println("\nBusqueda completada con exito, resultado en: " + fileNameResult);
+        } else {
+            LoggerUtil.logError("Busqueda de clientes: SIN RESULTADOS");
+            System.out.println("\nNo se encontraron resultados de clientes");
+        }
+    }
 }

@@ -5,6 +5,7 @@ import java.io.File;
 import models.Diner;
 import models.Item;
 import models.Table;
+import types.Stack;
 import utils.FileManager;
 import utils.LoggerUtil;
 
@@ -63,5 +64,25 @@ public class ProcessMain {
         String invoiceText = FileManager.getTextFromFile(file);
         String searchResult = Process.searchTableInText(invoiceText, table);
         return searchResult;
+    }
+
+    public static String searchClientsInFile (File file) {
+        String invoiceText = FileManager.getTextFromFile(file);
+        Stack<String> clients = extractClients(invoiceText);
+        return clients.toString();
+    }
+
+    private static Stack<String> extractClients (String text) {
+        Stack<String> result = new Stack<>();
+        String[] lines = text.split("\n");
+
+        for (String line : lines) {
+            if (line.startsWith("Cliente: ")) {
+                String clientName = line.substring(9).trim(); // Extraer el nombre del cliente
+                result.push(clientName); // Agregar a la pila
+            }
+        }
+
+        return result;
     }
 }

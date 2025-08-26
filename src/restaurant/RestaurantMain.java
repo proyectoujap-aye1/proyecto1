@@ -36,7 +36,8 @@ public class RestaurantMain {
             System.out.println("2. Ver estado de todas las mesas");
             System.out.println("3. Buscar información por nombre");
             System.out.println("4. Buscar información por mesa");
-            System.out.println("5. Salir");
+            System.out.println("5. Buscar clientes por factura");
+            System.out.println("6. Salir");
             System.out.print("Seleccione una opción: ");
 
             int opt = scanner.nextInt();
@@ -57,6 +58,9 @@ public class RestaurantMain {
                     searchInfo(scanner, "TABLE");
                     break;
                 case 5:
+                    searchInfo(scanner, "CLIENT");
+                    break;
+                case 6:
                     exit = true;
                     System.out.println("Saliendo del sistema...");
                     break;
@@ -120,6 +124,9 @@ public class RestaurantMain {
                     break;
                 case "TABLE":
                     Restaurant.searchInfoByTable(scanner, invoices, MAX_TABLES);
+                    break;
+                case "CLIENT":
+                    Restaurant.searchInfoByClient(scanner, invoices);
                     break;
                 default:
                     error_msg = "Termino de busqueda invalido";

@@ -11,9 +11,24 @@ public class Queue<T> {
         this.size = 0;
     }
 
+    public T getPeek() {
+        if (this.isEmpty())
+            throw new IllegalArgumentException("- QueueError: La cola esta vacia.");
+
+        return this.front.getData();
+    }
+
+    public void showLast() {
+        System.out.println(this.last);
+    }
+
+    public int getSize() {
+        return this.size;
+    }
+
     public void enqueue(T data) { // Push
         if (data == null)
-            throw new IllegalArgumentException("- QueueError: El dato es nulo, no pudo ser agregado a la cola. ");
+            throw new IllegalArgumentException("- QueueError: El dato es nulo, no pudo ser agregado a la cola.");
 
         Node<T> newNode = new Node<>(data);
         if (this.isEmpty())
@@ -27,7 +42,7 @@ public class Queue<T> {
 
     public T dequeue() { // Pop
         if (this.isEmpty())
-            throw new IllegalArgumentException("- QueueError: la cola esta vacia");
+            throw new IllegalArgumentException("- QueueError: La cola esta vacia.");
 
         T data = this.front.getData(); // Se toma el dato a retornar
         this.front = this.front.getNext();
@@ -37,21 +52,6 @@ public class Queue<T> {
 
         this.size--;
         return data;
-    }
-
-    public T getPeek() {
-        if (this.isEmpty())
-            throw new IllegalArgumentException("- QueueError: la cola esta vacia");
-
-        return this.front.getData();
-    }
-
-    public int getSize() {
-        return this.size;
-    }
-
-    public void showLast() {
-        System.out.println(this.last);
     }
 
     public boolean isEmpty() {

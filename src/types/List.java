@@ -15,17 +15,17 @@ public class List<T> {
 
     public Node<T> getNode() {
         if (this.IsEmpty())
-            throw new IllegalArgumentException("- list-Error: Lista vacia, nada que eliminar");
+            throw new IllegalArgumentException("- List-Error: Lista vacia, nada que eliminar.");
 
         return this.head.getNext();
     }
 
     public Node<T> getNodeByData(T data) {
         if (data == null)
-            throw new IllegalArgumentException("- list-Error: El dato es nulo, no puede realizar la busqueda. ");
+            throw new IllegalArgumentException("- List-Error: El dato es nulo, no puede realizar la busqueda.");
 
         if (this.IsEmpty())
-            throw new IllegalArgumentException("- list-Error: Lista vacia, nada que eliminar");
+            throw new IllegalArgumentException("- List-Error: Lista vacia, nada que eliminar.");
 
         Node<T> head = this.head;
         Node<T> found = head.getNext();
@@ -42,7 +42,7 @@ public class List<T> {
 
     public Node<T> getNodeByPos(int pos) {
         if (this.IsEmpty())
-            throw new IllegalArgumentException("- list-Error: Lista vacia, nada que eliminar");
+            throw new IllegalArgumentException("- List-Error: Lista vacia, nada que eliminar.");
 
         if (pos <= 0)
             return this.getNode();
@@ -110,7 +110,7 @@ public class List<T> {
 
     public void remove() {
         if (this.IsEmpty())
-            throw new IllegalArgumentException("- list-Error: Lista vacia, nada que eliminar");
+            throw new IllegalArgumentException("- List-Error: Lista vacia, nada que eliminar.");
 
         Node<T> head = this.head;
         Node<T> nodeRemove = head.getNext();
@@ -121,7 +121,7 @@ public class List<T> {
 
     public void remove(int pos) {
         if (pos < 0 || pos > this.size)
-            throw new IllegalArgumentException("- list-Error: Invalid pos. ");
+            throw new IllegalArgumentException("- List-Error: Invalid pos.");
 
         if (pos == 0) {
             this.remove();
@@ -149,10 +149,10 @@ public class List<T> {
 
     public void remove(T data){
         if (data == null)
-            throw new IllegalArgumentException("- list-Error: El dato es nulo, no puede realizar la busqueda. ");
+            throw new IllegalArgumentException("- List-Error: El dato es nulo, no puede realizar la busqueda.");
 
         if (this.IsEmpty())
-            throw new IllegalArgumentException("- list-Error: Lista vacia, nada que eliminar");
+            throw new IllegalArgumentException("- List-Error: Lista vacia, nada que eliminar.");
 
         // Mayor a la posicion 1
         Node<T> head = this.head;

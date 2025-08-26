@@ -12,7 +12,7 @@ public class Node<T> {
 
     public Node(T data){
         if (data == null)
-            throw new IllegalArgumentException("- RefError: Data no puede ser 0. ");
+            throw new IllegalArgumentException("- RefError: Data no puede ser 0.");
 
         this.data = data;
         this.next = null;
@@ -20,7 +20,7 @@ public class Node<T> {
 
     public Node(Node<T> copy){
         if (copy == null)
-            throw new IllegalArgumentException("- RefError: Copia fallida por nodo nulo. ");
+            throw new IllegalArgumentException("- RefError: Copia fallida por nodo nulo.");
 
         this.data = copy.getData();
         this.next = copy.getNext();
@@ -38,10 +38,10 @@ public class Node<T> {
     // Setters
     public void setData(T data) {
         if (data == null)
-            throw new IllegalArgumentException("- RefError: El dato es nulo. ");
+            throw new IllegalArgumentException("- RefError: El dato es nulo.");
 
         if (data == this.data)
-            throw new IllegalArgumentException("- RefError: Tiene el mismo dato. ");
+            throw new IllegalArgumentException("- RefError: Tiene el mismo dato.");
 
         this.data = data;
     }
