@@ -12,10 +12,7 @@ public class Process {
     public static void initMatrix (Table[] m) {
         if (m != null) {
             for (int i = 0; i < m.length; i++) {
-                Table table = new Table();
-                table.setNumber(i + 1);
-                table.setPersonsInTable(0);
-                table.setBusy(false);
+                Table table = new Table(i + 1, 0, false);
                 m[i] = table;
             }
         }
@@ -24,8 +21,7 @@ public class Process {
     public static void initMatrix (Diner[] m) {
         if (m != null) {
             for (int i = 0; i < m.length; i++) {
-                Diner diner = new Diner();
-                diner.setNumberOfItems(0);
+                Diner diner = new Diner(0);
                 m[i] = diner;
             }
         }
@@ -34,9 +30,7 @@ public class Process {
     public static void initMatrix (Item[] m) {
         if (m != null) {
             for (int i = 0; i < m.length; i++) {
-                Item item = new Item();
-                item.setQuantity(0);
-                item.setPrice(0.00);
+                Item item = new Item(0, 0.00);
                 m[i] = item;
             }
         }
