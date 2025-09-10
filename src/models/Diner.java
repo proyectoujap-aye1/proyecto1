@@ -5,6 +5,17 @@ public class Diner {
     private int numberOfItems;
     private Item[] items;
 
+    // CONSTRUCTORS
+    public Diner(int numberOfItems) {
+        setNumberOfItems(numberOfItems);
+    }
+
+    public Diner(String name, int numberOfItems, Item[] items) {
+        setName(name);
+        setNumberOfItems(numberOfItems);
+        setItems(items);
+    }
+  
     // NAME
     public String getName() {
         return name;
