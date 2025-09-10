@@ -15,7 +15,7 @@ public class Diner {
         setNumberOfItems(numberOfItems);
         setItems(items);
     }
-
+  
     // NAME
     public String getName() {
         return name;
