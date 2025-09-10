@@ -5,6 +5,18 @@ public class Item {
     private int quantity;
     private double price;
 
+    // CONSTRUCTORS
+    public Item(int quantity, double price) {
+        setQuantity(quantity);
+        setPrice(price);
+    }
+
+    public Item(String name, int quantity, double price) {
+        setName(name);
+        setQuantity(quantity);
+        setPrice(price);
+    }
+
     // NAME
     public String getName() {
         return name;
@@ -24,7 +36,7 @@ public class Item {
 
     public void setQuantity(int quantity) {
         if (quantity < 0)
-            throw new IllegalArgumentException("La cantidad no puede ser negativa.");
+            throw new IllegalArgumentException("La cantidad debe ser mayor o igual a 0.");
 
         this.quantity = quantity;
     }
@@ -36,7 +48,7 @@ public class Item {
 
     public void setPrice(double price) {
         if (price < 0)
-            throw new IllegalArgumentException("El precio no puede ser negativo.");
+            throw new IllegalArgumentException("El precio debe ser mayor o igual a 0.");
 
         this.price = price;
     }
